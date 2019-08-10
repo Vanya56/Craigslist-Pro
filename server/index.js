@@ -26,12 +26,15 @@ function getResults(body) {
             images = parts.map((id) => {
                 return `https://images.craigslist.org/${id.split(':')[1]}_300x300.jpg`;
             });
-        
+
         }
+        const hood = result.find('.result-hood').text().trim().replace("(", "").replace(")", "");
+
         results.push({
             title,
             price,
-            images
+            images,
+            hood
         });
     });
     return results;
